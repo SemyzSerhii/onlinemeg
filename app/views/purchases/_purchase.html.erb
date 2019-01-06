@@ -1,0 +1,25 @@
+<% cache ['entry', purchase] do %>
+  <div class="dist_posts raz photo"
+       style="border-radius:0.25rem; width: 40rem; height: 20rem; float: left;
+         box-shadow: 0px 0px 1px 0px #000000; flex-direction: column;
+         margin-left: 40rem; margin-right: 10rem; margin-top: 2rem">
+    <div class="photo" style="position: relative;">
+      <%= image_tag 'http://searchfoto.ru/img/xDcfBDYAwCADAjeBp4jaoBFtBGiBhfb3f3VUrd8TuhuluSu3xJLxcOIyEEy82TxRS5Rj_6cgKOgs3mEs-.jpg',
+        alt: 'Image', class: 'card-img-top photo_post', target: '_blank' %>
+      <h2 class="card-text" style="font-size: 1.5rem; height: 112px;  width: 100%;
+        color: white; position: absolute; z-index: 1; padding: 40px; margin-top: -12.5rem; text-align: left">
+        <%= purchase.title %>
+      </h2>
+      <%= link_to edit_purchase_path(purchase) do %>
+        <i class="fas fa-cog" style="color: white; position: absolute; z-index: 1;
+          margin-top: -12rem; margin-left: 38.5rem"></i>
+      <% end %>
+    </div>
+    <div style="margin-top: 0.5rem; margin-left: 2rem; margin-right: 2rem">
+      <%= purchase.short_description[0..165] %>
+    </div>
+    <div style="margin-top: 0.5rem; margin-left: 2rem">
+      <span class="price"><%= number_to_currency(purchase.price, unit: '₴', precision: 0) %></span>
+    </div>
+  </div>
+<% end %>

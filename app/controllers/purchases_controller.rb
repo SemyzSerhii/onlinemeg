@@ -5,22 +5,34 @@ class PurchasesController < ApplicationController
     @purchases = Purchase.all
   end
 
-  def show
+  def show; end
 
+  def new
+    @purchase = Purchase.new
   end
 
   def create
-    @purchase = Purchase.new.build(purchases_params)
+    @purchase = Purchase.new(purchases_params)
+    if @purchase.save
+      redirect_to root_path
+    else
+      redirect_to :new
+    end
+
   end
 
   def destroy
 
   end
 
-  def edit;end
+  def edit; end
 
   def update
-
+    if @purchase.update_attributes(purchases_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   private

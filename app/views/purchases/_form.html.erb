@@ -1,0 +1,28 @@
+<div class="container " style="padding-left: 10rem; padding-right: 10rem; margin-top: 5rem">
+  <%= form_for @purchase do |f| %>
+      <div class="form-group">
+        <%= f.label :title, 'Назва Товару' %>
+        <%= f.text_area :title , required: true, class: 'form-control raz',
+          style: 'border-radius: 1rem; text-align: left' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :price, 'Ціна' %>
+        <%= f.number_field :price ,size: '60x12', required: true, class: 'form-control raz',
+          style: 'border-radius: 1rem; width: 50%; text-align: left; overflow-y:auto' %>
+      </div>
+        <div class="form-group">
+          <%= f.label :short_description, 'Короткий опис' %>
+          <%= f.text_area :short_description , required: true, class: 'form-control raz',
+            style: 'border-radius: 1rem; text-align: left',
+            placeholder: ' Приклад: "Екран (6.1", IPS, 1792x828)/ Apple A12 Bionic/..."' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :full_description, 'Повний опис' %>
+          <%= f.text_area :full_description, required: true, class: 'form-control raz',
+            style: 'border-radius: 1rem; text-align: left' %>
+        </div>
+    <%= f.submit 'Зберегти', class: 'btn btn-sm btn-outline-secondary',
+      style: 'border-radius: 1rem; position: relative;
+          border: 1px solid black; background-color: #f9f9f9; color: black'%>
+  <%end %>
+</div>
