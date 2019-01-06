@@ -1,9 +1,11 @@
-<div class="submenu" style="width: 10%; position: absolute; z-index: 1; border: black 1px solid; margin-left: 1rem; margin-top: 1rem">
+<div class="submenu" style="width: 20%; position: absolute; z-index: 1;box-shadow: 0px 0px 1px 0px #000000;;
+  margin-left: 1rem; margin-top: 1rem; font-size: 1rem; border-radius: 1rem">
   <h2 style="text-align: center"> Каталог</h2>
   <ul class="nav nav-pills nav-stacked">
     <% Category.roots.each do |category| %>
       <li class="nav-item">
-        <%= link_to category.name, category, class: "dropdown-item #{ 'active' if current_page?(category_path(category))}"%>
+        <%= link_to category.name, category,
+          class: "dropdown-item #{ 'active' if current_page?(category_path(category))}", style:'font-weight:bold'%>
         <%= render 'category_menu/category_menu_podcat', categories: category.root.descendants.arrange %>
       </li>
     <% end %>
