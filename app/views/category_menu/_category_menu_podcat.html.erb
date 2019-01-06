@@ -1,0 +1,8 @@
+<ul class="nav nav-pills nav-stacked nested_nav">
+  <% categories.each do |category, children| %>
+    <li class="nav-item" style=" border: black 1px solid; width: 100%">
+      <%= link_to category.name, category, class: "dropdown-item #{ 'active' if current_page?(category_path(category))}"%>
+      <%= render 'category_menu_podcat', categories: children if children.present?%>
+    </li>
+  <%end %>
+</ul>

@@ -33,6 +33,12 @@ class PurchasesController < ApplicationController
     else
       render :edit
     end
+
+  def destroy
+    if @purchase.destroy
+      redirect_to root_path
+    end
+  end
   end
 
   private
@@ -42,7 +48,7 @@ class PurchasesController < ApplicationController
 
   def purchases_params
     params.require(:purchase).permit(
-      :title, :price, :short_description, :full_description, :in_stock
+      :title, :price, :short_description, :full_description, :in_stock, :category_id
     )
   end
 end
