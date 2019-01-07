@@ -48,7 +48,7 @@ class PurchasesController < ApplicationController
 
   def purchases_params
     params.require(:purchase).permit(
-      :title, :price, :short_description, :full_description, :in_stock, :category_id
+      :title, :price, :short_description, :full_description, :in_stock, :category_id, :all_tags
     )
   end
 end

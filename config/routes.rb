@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   resources :purchases
   resources :categories
+  resources :tags, only: [:show]
 end

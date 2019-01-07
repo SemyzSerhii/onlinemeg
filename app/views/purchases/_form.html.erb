@@ -16,6 +16,12 @@
         class: 'form-control raz', style: 'width: 50%; text-align: left; overflow-y:auto' %>
     </div>
     <div class="form-group">
+      <%= f.label :all_tags, 'Теги' %>
+      <%= f.text_field :all_tags,size: '60x12', required: true, class: 'form-control raz',
+        style: 'border-radius: 1rem; text-align: left; overflow-y:auto',
+        placeholder: ' Приклад: "Тег1, Тег2, Тег3, ..."' %>
+    </div>
+    <div class="form-group">
       <%= f.label :short_description, 'Короткий опис' %>
       <%= f.text_area :short_description , required: true, class: 'form-control raz',
         style: 'border-radius: 1rem; text-align: left',

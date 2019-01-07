@@ -1,4 +1,9 @@
 <%= render 'category_menu/category_menu' %>
+<div>
+  <%= Tag.all.map do |tag| %>
+  <%= link_to tag.name, tag_path(tag.name) %>
+  <%end %>
+</div>
 <% cache ['store', Purchase.latest] do %>
 <%= render @purchases %>
 <% end %>

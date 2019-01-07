@@ -18,6 +18,13 @@
         position: absolute; z-index: 1; margin-top: -12rem; margin-left: 2.5rem; text-align: left; color: white; text-decoration: none' %>
         <%end %>
       </div>
+    <section class="footer-summary", style="position: absolute; z-index: 1;margin-top: -2.5rem;
+      margin-left: 1.5rem; width: 43%">
+      <% if purchase.tags.present? %>
+        <%= raw purchase.tags.map(&:name).map { |tag| link_to tag, tag_path(tag),
+          style: 'color:white; border: 1px white solid; text-decoration: none; padding: 2px; border-radius: 0.25rem' }.join(' ') %>
+      <%end %>
+    </section>
       <%= link_to edit_purchase_path(purchase) do %>
         <i class="fas fa-cog" style="color: white; position: absolute; z-index: 1;
           margin-top: -12rem; margin-left: 38.5rem"></i>
