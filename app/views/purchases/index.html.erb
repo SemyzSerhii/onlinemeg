@@ -1,9 +1,11 @@
-<%= render 'category_menu/category_menu' %>
 <div>
-  <%= Tag.all.map do |tag| %>
-  <%= link_to tag.name, tag_path(tag.name) %>
+  <%= Tag.count do |tag| %>
+    <%= link_to tag.name, tag_path(tag.name) %>
   <%end %>
 </div>
+<%= render 'category_menu/category_menu' %>
 <% cache ['store', Purchase.latest] do %>
 <%= render @purchases %>
 <% end %>
+
+
