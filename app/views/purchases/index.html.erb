@@ -1,11 +1,18 @@
-<div>
-  <%= Tag.count do |tag| %>
-    <%= link_to tag.name, tag_path(tag.name) %>
-  <%end %>
-</div>
+<div style="width: 20%; position: fixed; z-index: 1;box-shadow: 0px 0px 1px 0px #000000;;
+  margin-left: 1rem; margin-top: 1rem; font-size: 1rem; border-radius: 0.5rem">
 <%= render 'category_menu/category_menu' %>
+  <h4 style="text-align: center; margin-top: 0.5rem"> Теги</h4>
+<div class="category" style="
+  margin-top: 1rem; font-size: 1rem; border-radius: 0.5rem">
+  <% @tags.each do |category| %>
+      <%= check_box_tag "filter[]", category.id,
+        params[:filter] ? params[:filter].include?(category.id.to_s) : false, id: "cb#{category.id}" %>
+       <label for="cb <%= category.id %>" style="border-bottom: 1px gray solid;width:35%; margin-left: 5%"><%= category.name %></label>
+  <% end %>
+</div>
+<%= submit_tag 'Find', class: 'btn btn-success' %>
+</div>
 <% cache ['store', Purchase.latest] do %>
 <%= render @purchases %>
 <% end %>
-
 

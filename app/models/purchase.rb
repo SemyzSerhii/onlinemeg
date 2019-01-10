@@ -17,4 +17,5 @@ class Purchase < ApplicationRecord
       Tag.where(name: name.strip).first_or_create!
     end
   end
+
 end

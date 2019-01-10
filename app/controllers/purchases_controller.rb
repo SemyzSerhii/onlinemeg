@@ -3,7 +3,9 @@ class PurchasesController < ApplicationController
 
   def index
     @purchases = Purchase.all
-  end
+    @tags = Tag.all
+    @purchases  = @purchases.where(id: Tagging.where(tag_id: params[:filter]).pluck(:purchase_id)) if params[:filter].present?
+    end
 
   def show; end
 
@@ -18,12 +20,9 @@ class PurchasesController < ApplicationController
     else
       redirect_to :new
     end
-
   end
 
-  def destroy
-
-  end
+  def destroy;end
 
   def edit; end
 
@@ -33,12 +32,12 @@ class PurchasesController < ApplicationController
     else
       render :edit
     end
+  end
 
   def destroy
     if @purchase.destroy
       redirect_to root_path
     end
-  end
   end
 
   private

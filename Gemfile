@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'ancestry'
+gem 'awesome_print'
 gem 'bcrypt'
 gem 'coffee-rails'
 gem 'jbuilder'
