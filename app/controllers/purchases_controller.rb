@@ -3,11 +3,16 @@ class PurchasesController < ApplicationController
 
   def index
     @purchases =
-      if params[:filter].present?
-        @purchases.where(id: Tagging.where(tag_id: params[:filter]).pluck(:purchase_id))
+      if params[:filters].present?
+        Purchase.filter(category_id: params.dig(:filters, :category_id))
       else
         Purchase.all
       end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show; end

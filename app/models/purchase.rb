@@ -8,6 +8,12 @@ class Purchase < ApplicationRecord
     Purchase.order(:updated_at).last
   end
 
+  def self.filter(category_id:)
+    joins(:category)
+      .where(categories: { id: category_id })
+      .or(joins(:category).where(categories: { ancestry: category_id }))
+  end
+
   def all_tags
     self.tags.map(&:name).join(',')
   end

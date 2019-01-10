@@ -5,9 +5,11 @@
     <ul class="nav nav-pills nav-stacked">
       <% Category.roots.each do |category| %>
         <li class="nav-item">
-          <%= link_to category.name, category,
-            class: "dropdown-item #{ 'active' if current_page?(category_path(category))}",
-            style: 'font-weight:bold; border-bottom: 1px gray solid; width:90%; margin-left: 5% ' %>
+          <%= link_to category.name, purchases_path(filters: { category_id: category.id }),
+            class: 'dropdown-item',
+            style: 'font-weight:bold; border-bottom: 1px gray solid; width:90%; margin-left: 5%',
+            remote: true
+          %>
           <%= render 'shared/subcategory_menu', categories: category.root.descendants.arrange %>
         </li>
         <% Tag.all.each do |tag| %>

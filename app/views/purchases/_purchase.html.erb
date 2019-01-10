@@ -1,39 +1,35 @@
-<% cache ['entry', purchase] do %>
-  <div class="dist_posts raz photo"
-       style="border-radius:0.25rem; width: 40rem; height: 20rem; float: left;
-         box-shadow: 0px 0px 1px 0px #000000; flex-direction: column;
-         margin-left: 40rem; margin-right: 10rem; margin-top: 2rem; margin-bottom: 2rem">
-    <div class="photo" style="position: relative;">
-      <h2 class="card-text" style="font-size: 1.5rem; height: 112px;  width: 100%;
-        color: white; position: absolute; z-index: 1; padding: 40px; margin-top: 0.5rem; text-align: left">
-        <%= purchase.title %>
-      </h2>
-      <%= image_tag 'http://searchfoto.ru/img/xDcfBDYAwCADAjeBp4jaoBFtBGiBhfb3f3VUrd8TuhuluSu3xJLxcOIyEEy82TxRS5Rj_6cgKOgs3mEs-.jpg',
-        alt: 'Image', class: 'card-img-top photo_post', target: '_blank' %>
-    </div>
-      <div>
-        <% if purchase.category.present? %>
-          <%= link_to purchase.category.name, purchase.category, class: 'card-text',
-            style: 'font-size: 1.5rem;  width: 100%;
-        position: absolute; z-index: 1; margin-top: -12rem; margin-left: 2.5rem; text-align: left; color: white; text-decoration: none' %>
-        <%end %>
-      </div>
-    <section class="footer-summary", style="position: absolute; z-index: 1;margin-top: -2.5rem;
-      margin-left: 1.5rem; width: 43%">
-      <% if purchase.tags.present? %>
-        <%= raw purchase.tags.map(&:name).map { |tag| link_to tag, tag_path(tag),
-          style: 'color:white; border: 1px white solid; text-decoration: none; padding: 2px; border-radius: 0.25rem' }.join(' ') %>
-      <%end %>
-    </section>
-      <%= link_to edit_purchase_path(purchase) do %>
-        <i class="fas fa-cog" style="color: white; position: absolute; z-index: 1;
-          margin-top: -12rem; margin-left: 38.5rem"></i>
-      <% end %>
-    <div style="margin-top: 0.5rem; margin-left: 2rem; margin-right: 2rem">
-      <%= purchase.short_description[0..180] %>
-    </div>
-    <div style="margin-top: 0.5rem; margin-left: 2rem">
-      <span class="price"><%= number_to_currency(purchase.price, unit: '₴', precision: 0) %></span>
-    </div>
+<div class="dist_posts raz photo"
+     style="border-radius:0.25rem; width: 40rem; height: 20rem; float: left;
+       box-shadow: 0px 0px 1px 0px #000000; flex-direction: column;
+       margin-left: 40rem; margin-right: 10rem; margin-top: 2rem; margin-bottom: 2rem">
+  <div class="photo" style="position: relative;">
+    <h2 class="card-text" style="font-size: 1.5rem; height: 112px;  width: 100%;
+      color: white; position: absolute; z-index: 1; padding: 40px; margin-top: 0.5rem; text-align: left">
+      <%= purchase.title %>
+    </h2>
+    <%= image_tag 'http://searchfoto.ru/img/xDcfBDYAwCADAjeBp4jaoBFtBGiBhfb3f3VUrd8TuhuluSu3xJLxcOIyEEy82TxRS5Rj_6cgKOgs3mEs-.jpg',
+      alt: 'Image', class: 'card-img-top photo_post', target: '_blank' %>
   </div>
-<% end %>
+  <div>
+    <% if purchase.category.present? %>
+      <%= link_to purchase.category.name, purchases_path(filters: { category_id: purchase.category.id}), class: 'card-text',
+        style: 'font-size: 1.5rem;  width: 100%;
+        position: absolute; z-index: 1; margin-top: -12rem; margin-left: 2.5rem; text-align: left; color: white; text-decoration: none',
+        remote: true
+      %>
+    <% end %>
+  </div>
+  <section class="footer-summary" style="position: absolute; z-index: 1;margin-top: -2.5rem;
+    margin-left: 1.5rem; width: 43%">
+    <% if purchase.tags.present? %>
+      <%= raw purchase.tags.map(&:name).map {|tag| link_to tag, tag_path(tag),
+        style: 'color:white; border: 1px white solid; text-decoration: none; padding: 2px; border-radius: 0.25rem'}.join(' ') %>
+    <% end %>
+  </section>
+  <div style="margin-top: 0.5rem; margin-left: 2rem; margin-right: 2rem">
+    <%= purchase.short_description[0..180] %>
+  </div>
+  <div style="margin-top: 0.5rem; margin-left: 2rem">
+    <span class="price"><%= number_to_currency(purchase.price, unit: '₴', precision: 0) %></span>
+  </div>
+</div>
