@@ -5,10 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'activeadmin'
 gem 'ancestry'
 gem 'awesome_print'
 gem 'bcrypt'
 gem 'coffee-rails'
+gem 'devise'
 gem 'jbuilder'
 gem 'pg'
 gem 'puma'

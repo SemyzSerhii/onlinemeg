@@ -4,7 +4,7 @@
       <%= link_to category.name, category,
         class: "dropdown-item #{ 'active' if current_page?(category_path(category))}",
         style: 'text-align: center; border-bottom: 1px gray solid; width:70%; margin-left: 15%  '%>
-      <%= render 'category_menu_podcat', categories: children if children.present?%>
+      <%= render 'subcategory_menu', categories: children if children.present?%>
     </li>
   <%end %>
 </ul>
