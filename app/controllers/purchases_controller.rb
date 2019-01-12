@@ -5,6 +5,7 @@ class PurchasesController < ApplicationController
     @purchases =
       if params[:filters].present?
         Purchase.filter(category_id: params.dig(:filters, :category_id))
+        Tagging.filter(tag_id: params.dig(:filters, :tag_id))
       else
         Purchase.all
       end

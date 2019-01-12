@@ -9,7 +9,7 @@
           <%= render 'shared/subcategory_menu', categories: category.root.descendants.arrange %>
         </li>
         <% Tag.all.each do |tag| %>
-          <%= link_to tag.name, tag %>
+          <%= link_to tag.name, purchases_path(filters: {tag_id: tag.id}), remote: true %>
         <% end %>
       <% end %>
     </ul>

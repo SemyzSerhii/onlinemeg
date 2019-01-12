@@ -12,7 +12,8 @@
   </div>
   <section class="footer-summary purchases_tags">
     <% if purchase.tags.present? %>
-      <%= raw purchase.tags.map(&:name).map {|tag| link_to tag, tag_path(tag), class: 'purchasy_tags'}.join(' ') %>
+      <%= raw purchase.tags.map(&:name).map {|tag| link_to tag, purchases_path(filters: { tag_id: purchase.taggings.ids}),
+        class: 'purchasy_tags', remote: true }.join(' ') %>
     <% end %>
   </section>
   <div class="purchasy_short_description"><%= purchase.short_description[0..180] %></div>
