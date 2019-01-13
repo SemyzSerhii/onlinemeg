@@ -22,3 +22,6 @@
 
 .byebug_history
 .git
+.env
+config/database.yml
+
