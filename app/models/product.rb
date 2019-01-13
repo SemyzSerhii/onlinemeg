@@ -1,11 +1,14 @@
 class Product < ApplicationRecord
+  include PgSearch
+
   belongs_to :category
 
   has_many :taggings
   has_many :tags, through: :taggings
 
   scope :filter_by_tag, ->(tag_id) { includes(:tags).where(tags: {id: tag_id})}
-  scope :search_by_title, ->(query) { where('title LIKE ?', query)}
+
+  pg_search_scope :full_search, against: %i[title short_description]
 
   def self.latest
     order(:updated_at).last
@@ -18,7 +21,7 @@ class Product < ApplicationRecord
   end
 
   def all_tags
-    tags.map(&:name).join(',')
+    tags.pluck(:name).join(',')
   end
 
   def all_tags=(names)
