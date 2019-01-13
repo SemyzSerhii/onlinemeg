@@ -4,12 +4,12 @@
     <ul class="nav nav-pills nav-stacked">
       <% Category.roots.each do |category| %>
         <li class="nav-item">
-          <%= link_to category.name, purchases_path(filters: { category_id: category.id }),
+          <%= link_to category.name, products_path(filters: { category_id: category.id }),
             class: 'dropdown-item top_category', remote: true %>
           <%= render 'shared/subcategory_menu', categories: category.root.descendants.arrange %>
         </li>
         <% Tag.all.each do |tag| %>
-          <%= link_to tag.name, purchases_path(filters: {tag_id: tag.id}), remote: true %>
+          <%= link_to tag.name, products_path(filters: {tag_id: tag.id}), remote: true %>
         <% end %>
       <% end %>
     </ul>

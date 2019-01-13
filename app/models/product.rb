@@ -1,11 +1,11 @@
-class Purchase < ApplicationRecord
+class Product < ApplicationRecord
   belongs_to :category
 
   has_many :taggings
   has_many :tags, through: :taggings
 
   def self.latest
-    Purchase.order(:updated_at).last
+    Product.order(:updated_at).last
   end
 
   def self.filter(category_id:)
