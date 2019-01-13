@@ -2,13 +2,7 @@ class ProductsController < ApplicationController
   before_action :find_product, only: %i[show]
 
   def index
-    @products =
-      if params[:filters].present?
-        Product.filter(category_id: params.dig(:filters, :category_id))
-        Tagging.filter(tag_id: params.dig(:filters, :tag_id))
-      else
-        Product.all
-      end
+    @products = Products::Search.call(search_params).scope
 
     respond_to do |format|
       format.html
@@ -22,6 +16,13 @@ class ProductsController < ApplicationController
 
   def find_product
     @product = Product.find(params[:id])
+  end
+
+  def search_params
+    return {} unless params[:search]
+    params.require(:search).permit(
+      :product_id, :tag_id, :name
+    )
   end
 
   def products_params

@@ -6,13 +6,13 @@
   </div>
   <div>
     <% if product.category.present? %>
-      <%= link_to product.category.name, products_path(filters: { category_id: product.category.id}),
+      <%= link_to product.category.name, products_path(search: { category_id: product.category.id}),
         class: 'purchasy_category card-text ', remote: true %>
     <% end %>
   </div>
   <section class="footer-summary products_tags">
     <% if product.tags.present? %>
-      <%= raw product.tags.map(&:name).map {|tag| link_to tag, products_path(filters: { tag_id: product.taggings.ids}),
+      <%= raw product.tags.map(&:name).map {|tag| link_to tag, products_path(search: { tag_id: product.taggings.ids}),
         class: 'purchasy_tags', remote: true }.join(' ') %>
     <% end %>
   </section>

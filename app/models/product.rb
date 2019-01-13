@@ -4,18 +4,21 @@ class Product < ApplicationRecord
   has_many :taggings
   has_many :tags, through: :taggings
 
+  scope :filter_by_tag, ->(tag_id) { includes(:tags).where(tags: {id: tag_id})}
+  scope :search_by_title, ->(query) { where('title LIKE ?', query)}
+
   def self.latest
-    Product.order(:updated_at).last
+    order(:updated_at).last
   end
 
-  def self.filter(category_id:)
+  def self.filter_by_category(category_id:)
     joins(:category)
       .where(categories: { id: category_id })
       .or(joins(:category).where(categories: { ancestry: category_id }))
   end
 
   def all_tags
-    self.tags.map(&:name).join(',')
+    tags.map(&:name).join(',')
   end
 
   def all_tags=(names)
