@@ -3,12 +3,13 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
   host: localhost
-  username: username
-  password: password
+  database: <%= Rails.application.secrets[:db_name] %>
+  username: <%= Rails.application.secrets[:db_username] %>
+  password: <%= Rails.application.secrets[:db_password] %>
 development:
   <<: *default
-  database: score_dev
-
 production:
   <<: *default
-  database: score_prod
+test:
+  <<: *default
+  database: store_test
