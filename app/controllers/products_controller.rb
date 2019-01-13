@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
   def search_params
     return {} unless params[:search]
     params.require(:search).permit(
-      :product_id, :tag_id, :name
+      :category_id, :tag_id, :query
     )
   end
 
