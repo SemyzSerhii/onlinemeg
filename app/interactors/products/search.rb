@@ -16,7 +16,7 @@ module Products
     end
 
     def search_by_category
-      context.scope = context.scope = context.scope.filter_by_category(category_id: context.category_id)
+      context.scope = context.scope.filter_by_category(category_id: context.category_id)
     end
 
     def search_by_tag

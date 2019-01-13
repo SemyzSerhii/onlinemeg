@@ -6,7 +6,7 @@ class Product < ApplicationRecord
   has_many :taggings
   has_many :tags, through: :taggings
 
-  scope :filter_by_tag, ->(tag_id) { includes(:tags).where(tags: {id: tag_id})}
+  scope :filter_by_tag, ->(tag_id) { includes(:tags).where(tags: { id: tag_id }) }
 
   pg_search_scope :full_search, against: %i[title short_description]
 
