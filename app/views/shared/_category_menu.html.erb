@@ -9,9 +9,10 @@
           <%= render 'shared/subcategory_menu', categories: category.root.descendants.arrange %>
         </li>
       <% end %>
+    </ul>
+      <h3 class="tags"> Теги</h3>
         <% Tag.all.each do |tag| %>
           <%= link_to tag.name, products_path(search: {tag_id: tag.id}), class: 'dropdown-item top_category', remote: true %>
         <% end %>
-    </ul>
   </div>
 </div>

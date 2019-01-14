@@ -6,7 +6,8 @@
   </button>
   <form class="form-inline mt-2 mt-md-0 search">
     <%= form_for(products_path, method: :get, id: 'search-form') do %>
-      <%= text_field :search, :query, data: { autocomplete: autocomplete_product_title_products_path }, placeholder: 'Search', class: 'orm-control mr-sm-2',
+      <%= text_field :search, :query,  id: 'search', data: { autocomplete_source: Product.order(:title).map(&:title)},
+        placeholder: 'Search', class: 'orm-control mr-sm-2',
         required: true, 'aria-label': 'Search', style: 'border-radius: 0.5rem' %>
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     <%end %>

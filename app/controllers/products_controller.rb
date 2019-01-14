@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-  autocomplete  :product, :title
   before_action :find_product, only: %i[show]
 
   def index
