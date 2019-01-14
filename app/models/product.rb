@@ -8,7 +8,9 @@ class Product < ApplicationRecord
 
   scope :filter_by_tag, ->(tag_id:) { includes(:tags).where(tags: { id: tag_id }) }
 
-  pg_search_scope :full_search, against: %i[title short_description]
+  pg_search_scope :full_search, against: %i[title short_description],
+    using: {tsearch: {prefix: true }},
+    associated_against: { tags: :name, category: :name}
 
   def self.latest
     order(:updated_at).last

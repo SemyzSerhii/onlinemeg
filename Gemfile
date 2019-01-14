@@ -7,6 +7,7 @@ end
 
 gem 'activeadmin'
 gem 'ancestry'
+gem 'autocomplete_rails'
 gem 'awesome_print'
 gem 'bcrypt'
 gem 'coffee-rails'

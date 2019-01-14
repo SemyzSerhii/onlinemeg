@@ -57,6 +57,8 @@ GEM
     arbre (1.1.1)
       activesupport (>= 3.0.0)
     arel (8.0.0)
+    autocomplete_rails (0.4.1)
+      rails (>= 4.0, < 5.3)
     awesome_print (1.8.0)
     bcrypt (3.1.12)
     bindex (0.5.0)
@@ -248,6 +250,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   ancestry
+  autocomplete_rails
   awesome_print
   bcrypt
   byebug

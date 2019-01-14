@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
-  resources :products, only: %i[show index]
+  resources :products, only: %i[show index] do
+    get :autocomplete_product_title, on: :collection
+  end
   resources :tags, only: [:show]
 end
