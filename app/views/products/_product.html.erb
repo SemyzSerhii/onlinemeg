@@ -12,7 +12,7 @@
   </div>
   <section class="footer-summary products_tags">
     <% if product.tags.present? %>
-      <%= raw product.tags.pluck(:name).map {|tag| link_to tag, products_path(search: { tag_id: product.tags.ids}),
+      <%= raw product.tags.map {|tag| link_to tag.name, products_path(search: {tag_id: tag.id}),
         class: 'purchasy_tags', remote: true}.join(' ') %>
     <% end %>
   </section>

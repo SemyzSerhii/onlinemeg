@@ -1,7 +1,7 @@
-<div class="category_menu">
-  <div class="submenu">
+<div class="category_menu ">
+  <div class="submenu submen">
     <h2 class="catalog"> Каталог</h2>
-    <ul class="nav nav-pills nav-stacked">
+    <ul class="nav nav-pills nav-stacked margin_ul">
       <% Category.roots.each do |category| %>
         <li class="nav-item">
           <%= link_to category.name, products_path(search: { category_id: category.id }),
