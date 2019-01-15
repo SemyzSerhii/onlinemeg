@@ -5,6 +5,9 @@ class Product < ApplicationRecord
 
   has_many :taggings
   has_many :tags, through: :taggings
+  has_many :line_items
+
+  before_destroy :empty_line_item
 
   scope :filter_by_tag, ->(tag_id:) { includes(:tags).where(tags: { id: tag_id }) }
 
@@ -29,6 +32,16 @@ class Product < ApplicationRecord
   def all_tags=(names)
     self.tags = names.split(',').map do |name|
       Tag.where(name: name.strip).first_or_create!
+    end
+  end
+
+  private
+  def empty_line_item
+    if line_items.empty?
+      return true
+    else
+      errors.add(:base, ' товару')
+      return false
     end
   end
 
