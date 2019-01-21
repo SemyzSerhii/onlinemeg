@@ -15,8 +15,11 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav line">
       <li class="nav-item active">
-        <%= link_to 'Головна сторінка', root_path, class:' nav-link' %>
+        <%= link_to cart_path(@cart), class:' nav-link cart_navbar ' do %>
+          <i class="fas fa-shopping-cart"></i>
+        <%end %>
       </li>
+      <li class="quantity_cart"><%= @cart.total_quanity_cart %></li>
       <li class="nav-item">
         <a class="nav-link" href="#">Оплата</a>
       </li>

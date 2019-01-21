@@ -1,3 +1,21 @@
-// Place all the styles related to the Carts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.buttom_delete {
+  margin-top: 0.5rem;
+  margin-left: 2rem;
+  background: red;
+  color: white;
+  border-color: #730E15;
+  font-size: 2rem;
+  width: 5rem;
+}
+
+.total_price_cart {
+  padding-left: 72rem;
+  margin-right: 4rem;
+  border-bottom: #d0cece 1px solid;
+  width: 100%;
+}
+
+.font-size {
+  font-size: 1rem;
+
+}

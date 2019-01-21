@@ -37,11 +37,9 @@ class Product < ApplicationRecord
 
   private
   def empty_line_item
-    if line_items.empty?
-      return true
-    else
-      errors.add(:base, ' товару')
-      return false
+    unless line_items.empty?
+       errors.add(:base, 'товару')
+       throw :abort
     end
   end
 

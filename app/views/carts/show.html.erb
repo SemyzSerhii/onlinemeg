@@ -1,0 +1,34 @@
+<% if @cart.line_items.present? %>
+  <h2 class="text-center"><b> Ваша корзина </b></h2>
+  <br>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col"> Товар</th>
+      <th scope="col"> Ціна </th>
+      <th scope="col"> Кількість </th>
+      <th scope="col"> Загальна ціна </th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @cart.line_items.each do |item| %>
+      <tr>
+        <td><%= item.product.title %> </td>
+        <td><%= number_to_currency(item.product.price, unit: '₴', precision: 0) %></td>
+        <td><%= item.quantity %></td>
+        <td><%= number_to_currency(item.total_price_product, unit: '₴', precision: 0) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+    <div class="total_price_cart ">
+      <h3><b> Загальна сума </b></h3>
+      <b class="font-size"><%= number_to_currency(@cart.total_price_cart, unit: '₴', precision: 0) %></b>
+    </div>
+  <%= button_to @cart, method: :delete, class: 'buttom_delete' do %>
+    <i class="fas fa-trash-alt"></i>
+  <% end %>
+<%else %>
+  <h2 class="text-center"><b> Корзина пуста </b></h2>
+<% end %>
