@@ -27,8 +27,10 @@
     <%= link_to cart_path(@cart), class:'cart_navbar ' do %>
       <i class="fas fa-shopping-cart"></i>
     <%end %>
+    <div id="quantity">
     <% if @cart.total_quanity_cart > 0 %>
       <div class="quantity_cart"><%= @cart.total_quanity_cart %></div>
     <%end %>
+  </div>
   </div>
 </nav>
