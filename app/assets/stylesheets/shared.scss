@@ -1,12 +1,27 @@
 .submen {
- background-color: #101010;
+ background-color: #000000;
 }
 
 
 .search {
   width: 15rem;
   flex-flow: row;
-  margin-left: 12rem;
+  margin-left: 6rem;
+}
+
+.bottom_search {
+  height: 30px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.search_background {
+  background: grey;
+  border: 1px solid #000000;
+}
+
+.search_background::placeholder {
+  color: black;
 }
 
 .line {
@@ -93,9 +108,16 @@ form button.btn-outline-success:hover {
 }
 
 .shop_navbar {
-  background: #101010;
+  background-image: url(http://grazsecrets.at/images/bg_menu.png);
   padding-left: 20rem;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 47px;
 }
+
 
 a.navbar_link_text {
   font-size: 1rem;
@@ -116,14 +138,19 @@ a.sign {
   align-items: center;
 
   &__word {
+    font-family: Snell Roundhand, cursive;
     text-decoration: none;
-    font-size: 2.6rem;
+    font-size: 4rem;
     text-align: center;
     line-height: 1;
-    color: #ecbcbb;
+    color: #ffc6cb;
     animation: neon .08s ease-in-out infinite alternate;
   }
 
+}
+
+.sign {
+  margin-top: 2rem;
 }
 
 @keyframes neon {
@@ -132,20 +159,17 @@ a.sign {
       0 0 6px  #ecbcbb,
       0 0 30px rgba(202,228,225,0.34),
       0 0 12px #800E0B,
-      0 0 21px #c71712,
+      0 0 21px #ff3b22,
       0 0 34px #c71712,
-      0 0 54px #FA1C16;
+      0 0 54px #ff3b22;
   }
   to {
     text-shadow:
-      0 0 6px  #ecbcbb,
+      0 0 6px  #eabcbb,
       0 0 30px rgba(202,228,225,0.42),
-      0 0 12px #800E0B,
-      0 0 22px #c71712,
-      0 0 38px #c71712,
-      0 0 60px #FA1C16;
+      0 0 12px #7b0c09,
+      0 0 22px #c31a14,
+      0 0 38px #c31c18,
+      0 0 60px #ff3b30;
   }
 }
-
-
-
