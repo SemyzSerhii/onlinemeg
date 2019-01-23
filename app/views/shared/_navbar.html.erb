@@ -1,9 +1,20 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <%= link_to 'Магазин', root_path, class:' nav-link' %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<nav class="navbar navbar-expand-lg navbar-light shop_navbar">
+  <ul class="navbar-nav line">
+    <li class="nav-item">
+      <a class="navbar_link_text" href="#">Оплата</a>
+    </li>
+    <li class="nav-item">
+      <a class="navbar_link_text" href="#">Доставка</a>
+    </li>
+  </ul>
+  <div class="sign">
+    <%= link_to 'Магазин', root_path, class:'sign__word' %>
+  </div>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="navbar_link_text" href="#">Про Нас</a>
+    </li>
+  </ul>
   <form class="form-inline mt-2 mt-md-0 search">
     <%= form_for(products_path, method: :get, id: 'search-form') do %>
       <%= text_field :search, :query,  id: 'search', data: { autocomplete_source: Product.order(:title).map(&:title)},
@@ -12,23 +23,10 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     <%end %>
   </form>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav line">
-      <li class="nav-item active">
-        <%= link_to cart_path(@cart), class:' nav-link cart_navbar ' do %>
-          <i class="fas fa-shopping-cart"></i>
-        <%end %>
-      </li>
-      <li class="quantity_cart"><%= @cart.total_quanity_cart %></li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Оплата</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Доставка</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Про Нас</a>
-      </li>
-    </ul>
-  </div>
+    <div>
+      <%= link_to cart_path(@cart), class:'cart_navbar ' do %>
+        <i class="fas fa-shopping-cart"></i>
+      <%end %>
+      <div class="quantity_cart"><%= @cart.total_quanity_cart %></div>
+    </div>
 </nav>

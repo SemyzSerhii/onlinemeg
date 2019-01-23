@@ -1,17 +1,16 @@
 .submen {
- background-color: #212529;
- border-top-right-radius: 0.25rem;
- border-bottom-right-radius: 0.5rem;
+ background-color: #101010;
 }
 
 
 .search {
-  width: 21rem;
-  margin-left:39rem;
+  width: 15rem;
+  flex-flow: row;
+  margin-left: 12rem;
 }
 
 .line {
-  margin-right: 1rem;
+  margin-left: 8rem;
 }
 
 .category_menu {
@@ -24,23 +23,27 @@
 }
 
 .catalog {
-  color: #a5c8e2;
+  color: white;
   text-align: center
 }
 
 .tags {
-  color: #a5c8e2;
+  color: white;
   text-align: center;
   margin-top: 1rem;
   margin-bottom: 0;
 }
 
 a.top_category {
-  color: #a5c8e2;
+  color: white;
   text-decoration: none;
   font-weight:bold;
-  border-bottom: 2px #a5c8e2 solid;
+  border-bottom: 2px white solid;
   width:100%;
+}
+
+a.top_category:hover {
+  background: #e46c5d;
 }
 
 .categories {
@@ -48,22 +51,101 @@ a.top_category {
 }
 
 a.category {
-  color: #a5c8e2;
+  color: white;
   text-decoration: none;
   text-align: center;
-  border-bottom: 2px #a5c8e2 solid;
+  border-bottom: 2px white solid;
   width:100%;
+}
+
+a.category:hover {
+  background: #e46c5d;
 }
 
 .margin_ul {
   margin-right: 0;
 }
 
-.cart_navbar {
+a.cart_navbar {
+  color: white;
   font-size: 1.5rem;
+  margin-left: 1rem;
 }
 
 .quantity_cart {
-  font-size: 1.5rem;
-  padding-top: 0.45rem;
+  width: 1.5rem;
+  font-size: 1rem;
+  background: orangered;
+  border-radius: 5rem;
+  text-align: center;
+  color: white;
+  position: absolute;
+  z-index: 1;
+  margin-top: -2.4rem;
+  margin-left: 2.5rem;
+
 }
+
+
+form button.btn-outline-success:hover {
+  background:green;
+  border-radius: 1rem;
+}
+
+.shop_navbar {
+  background: #101010;
+  padding-left: 20rem;
+}
+
+a.navbar_link_text {
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  margin-left: 1.5rem;
+}
+
+a.navbar_link_text:hover {
+  color: #e46c5d;
+}
+
+a.sign {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__word {
+    text-decoration: none;
+    font-size: 2.6rem;
+    text-align: center;
+    line-height: 1;
+    color: #ecbcbb;
+    animation: neon .08s ease-in-out infinite alternate;
+  }
+
+}
+
+@keyframes neon {
+  from {
+    text-shadow:
+      0 0 6px  #ecbcbb,
+      0 0 30px rgba(202,228,225,0.34),
+      0 0 12px #800E0B,
+      0 0 21px #c71712,
+      0 0 34px #c71712,
+      0 0 54px #FA1C16;
+  }
+  to {
+    text-shadow:
+      0 0 6px  #ecbcbb,
+      0 0 30px rgba(202,228,225,0.42),
+      0 0 12px #800E0B,
+      0 0 22px #c71712,
+      0 0 38px #c71712,
+      0 0 60px #FA1C16;
+  }
+}
+
+
+

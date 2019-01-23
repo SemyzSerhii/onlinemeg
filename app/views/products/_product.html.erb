@@ -20,7 +20,7 @@
   <div class="purchasy_price">
     <span class="price"><%= number_to_currency(product.price, unit: '₴', precision: 0) %></span>
   </div>
-  <%= button_to line_items_path(product_id: product), class:'buttom_buy', remote: true  do%>
+  <%= button_to line_items_path(product_id: product), class:'buttom_buy' do%>
     <i class="fas fa-shopping-cart"></i>
   <% end %>
 </div>

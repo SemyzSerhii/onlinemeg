@@ -11,6 +11,7 @@
   box-shadow: 0px 0px 1px 0px #000000;
   flex-direction: column;
   margin: 2rem 10rem 2rem 40rem;
+  background-color: white;
 }
 
 .purchasy_title_img {
@@ -83,9 +84,17 @@ a.purchasy_tags {
 }
 
 .buttom_buy {
+  font-size: 1rem;
   margin-top: 0.5rem;
   margin-left: 2rem;
   background: greenyellow;
   color: white;
   border-color: green;
+  border-radius: 0.25rem;
 }
+
+form button.buttom_buy:hover {
+  background:green;
+  border-radius: 1rem;
+}
+

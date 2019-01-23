@@ -8,6 +8,11 @@
   width: 5rem;
 }
 
+form button.buttom_delete:hover {
+  background: #730E15;
+  border-radius: 0.25rem;
+}
+
 .total_price_cart {
   padding-left: 72rem;
   margin-right: 4rem;
@@ -17,5 +22,5 @@
 
 .font-size {
   font-size: 1rem;
-
 }
+
