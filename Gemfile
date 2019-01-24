@@ -1,14 +1,7 @@
 source 'https://rubygems.org'
 
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
-
 gem 'activeadmin'
 gem 'ancestry'
-gem 'autocomplete_rails'
-gem 'awesome_print'
 gem 'bcrypt'
 gem 'coffee-rails'
 gem 'devise'
@@ -25,6 +18,7 @@ gem 'turbolinks'
 gem 'uglifier'
 
 group :development, :test do
+  gem 'awesome_print'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
