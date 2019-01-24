@@ -17,7 +17,7 @@
   </ul>
   <form class="form-inline mt-2 mt-md-0 search">
     <%= form_for(products_path, method: :get, id: 'search-form') do %>
-      <%= text_field :search, :query,  id: 'search', data: { autocomplete_source: Product.order(:title).map(&:title)},
+      <%= text_field :search, :query,  id: 'search', data: { autocomplete_source: Product.order(:title).pluck(:title)},
         placeholder: 'Search', class: 'search_background orm-control mr-sm-2',
         required: true, 'aria-label': 'Search', style: 'border-radius: 0.5rem' %>
       <button class="btn btn-outline-success my-2 my-sm-0 bottom_search " type="submit">Search</button>
@@ -28,9 +28,9 @@
       <i class="fas fa-shopping-cart"></i>
     <%end %>
     <div id="quantity">
-    <% if @cart.total_quanity_cart > 0 %>
-      <div class="quantity_cart"><%= @cart.total_quanity_cart %></div>
-    <%end %>
+      <div class="quantity_cart">
+        <%= @cart.total_quantity_cart if @cart.total_quantity_cart.positive? %>
+      </div>
   </div>
   </div>
 </nav>
